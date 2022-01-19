@@ -78,7 +78,7 @@ function ConvertHandler() {
 		else if (initUnit === "kg") {
 			result = initNum / lbsToKg;
 		}
-		return parseFloat(result.toPrecision(6));
+		return Math.round(result * 100000) / 100000;
 	};
 
 	this.getString = function (initNum, initUnit, returnNum, returnUnit) {
