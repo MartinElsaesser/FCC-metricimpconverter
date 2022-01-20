@@ -60,24 +60,21 @@ function ConvertHandler() {
 		const lbsToKg = 0.453592;
 		const miToKm = 1.60934;
 		let result;
+		// conversion
 		if (initUnit === "gal") {
 			result = initNum * galToL;
-		}
-		else if (initUnit === "L") {
+		} else if (initUnit === "L") {
 			result = initNum / galToL;
-		}
-		else if (initUnit === "mi") {
+		} else if (initUnit === "mi") {
 			result = initNum * miToKm;
-		}
-		else if (initUnit === "km") {
+		} else if (initUnit === "km") {
 			result = initNum / miToKm;
-		}
-		else if (initUnit === "lbs") {
+		} else if (initUnit === "lbs") {
 			result = initNum * lbsToKg;
-		}
-		else if (initUnit === "kg") {
+		} else if (initUnit === "kg") {
 			result = initNum / lbsToKg;
 		}
+		// round to 5 decimal places
 		return Math.round(result * 100000) / 100000;
 	};
 

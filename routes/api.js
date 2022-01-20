@@ -11,16 +11,17 @@ module.exports = function (app) {
 		const input = req.query.input;
 		const inputNum = cH.getNum(input);
 		const inputUnit = cH.getUnit(input);
-		console.log({ inputNum, inputUnit });
+
+		// Error handeling
 		if (inputNum === "invalid number" && inputUnit === "invalid unit") {
 			throw new AppError("invalid number and unit", 200);
-		}
-		else if (inputNum === "invalid number") {
+		} else if (inputNum === "invalid number") {
 			throw new AppError("invalid number", 200);
-		}
-		else if (inputUnit === "invalid unit") {
+		} else if (inputUnit === "invalid unit") {
 			throw new AppError("invalid unit", 200);
 		}
+
+		// Conversion
 		const returnNumber = cH.convert(inputNum, inputUnit);
 		const returnUnit = cH.getReturnUnit(inputUnit);
 		res.json(cH.getString(inputNum, inputUnit, returnNumber, returnUnit))
